@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import math
+import matplotlib.pyplot as plt
 
 # 세운 여름 환경 데이터 불러오기
 df = pd.read_csv('./seun_summer.csv', parse_dates=['timestamp', "date"])
@@ -53,10 +54,20 @@ c_car1 = (-1.32 * (0.1 ** 5))*60
 c_car2 = (5.94 * (0.1 ** 4))*60
 c_car3 = (-2.64 * (0.1 ** 3))*60
 
+date = pd.to_datetime(df.iloc[:,0].values.tolist())
+print(date)
+
+# 계화 겨울
 u_t = df.iloc[:,3].values.tolist()
 u_co2 = df.iloc[:, 4].values.tolist()
 u_par = df.iloc[:, 5].values.tolist()
 dt = df.iloc[:,6].values.tolist()
+
+# 세운 여름
+# u_t = df2.iloc[:,3].values.tolist()
+# u_co2 = df2.iloc[:, 4].values.tolist()
+# u_par = df2.iloc[:, 5].values.tolist()
+# dt = df2.iloc[:,6].values.tolist()
 
 nsdw = np.zeros(total_length)
 sdw = np.zeros(total_length)
@@ -95,5 +106,22 @@ for i in range(0, total_length):
     lai[i] = ((1-c_t)*c_lar*sdw[i])*10
     # print(u_t[i], nsdw[i],sdw[i], r_gr[i], f_resp[i], f_phot[i], gamma[i], epsilon[i])
     # print(f_phot_max[i], g_car[i],dw[i], lai[i], g_co2[i])
-print(dw)
-print(lai)
+# print(dw)
+# print(lai)
+
+x= np.array(date)
+y = np.array(dw)
+y2 = np.array(lai)
+
+plt.figure(1)
+plt.title('DW')
+plt.plot(x,y)
+plt.rc('axes', labelsize=5)    # fontsize of the x and y labels
+plt.xticks(rotation=30)
+
+plt.figure(2)
+plt.title('LAI')
+plt.plot(x,y2)
+plt.rc('axes', labelsize=5)    # fontsize of the x and y labels
+plt.xticks(rotation=30)
+plt.show()
