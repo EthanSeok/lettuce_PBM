@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import math
 import matplotlib.pyplot as plt
-import seaborn as sns
 import streamlit as st
 
 # 세운 여름 환경 데이터 불러오기
