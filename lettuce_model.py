@@ -196,7 +196,6 @@ for i in range(0, total_length):
 #     columns=['10','11','12','13','14','15','16','17','18','19','20','21','22','23'])
 #
 # st.line_chart(seun_temp)
-print(st.__version__)
 
 df_dw = pd.DataFrame({
     'date': date_env,
@@ -209,9 +208,9 @@ df_lai = pd.DataFrame({
 })
 
 st.subheader('DRY WEIGHT (g)')
-st.line_chart(df_dw, x='date', y='dw')
+st.line_chart(df_dw, x='DAT', y='dry weight (g)')
 st.subheader('LAI (leaf area index, (m2/m2)')
-st.line_chart(df_lai, x='date', y='LAI')
+st.line_chart(df_lai, x='DAT', y='LAI (m2/m2)')
 
 
 
