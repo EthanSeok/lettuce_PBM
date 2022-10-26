@@ -26,14 +26,14 @@ df2["timestamp"] = pd.to_datetime(df2["timestamp"], format="%Y-%m-%d %H:%M:%S.%f
 
 df2["dt"] = (df2["timestamp"] - df2["timestamp"].shift(periods=1)).dt.total_seconds()/60
 # total_length = len(df.index)
-total_length = len(df.index)
+total_length = len(df2.index)
 
 df2 = df2.iloc[:, [0,4,5,2,15]]
 # print(df2.head)
 
 date_summer = pd.to_datetime(df.iloc[:, 0].values.tolist())
 date_winter = pd.to_datetime(df2.iloc[:, 0].values.tolist())
-
+date_env = df_env.iloc[:, 27]
 
 # streamlit
 st.title('LETTUCE PBM MODEL')
@@ -97,7 +97,7 @@ c_car3 = (-2.64 * (0.1 ** 3))
 u_t = df_env[env_t].values.tolist()
 u_co2 = df_env.iloc[:, 1].values.tolist()
 u_par = df_env[env_p].values.tolist()
-dt = df.iloc[:, 6].values.tolist()
+dt = df2.iloc[:, 4].values.tolist()
 
 nsdw = np.zeros(total_length)
 sdw = np.zeros(total_length)
@@ -141,24 +141,24 @@ for i in range(0, total_length):
 # print(dw)
 # print(lai)
 
-x = np.array(date_summer)
-y = np.array(dw)
-y2 = np.array(lai)
+# x = np.array(date_summer)
+# y = np.array(dw)
+# y2 = np.array(lai)
 
-plt.figure(1)
-plt.title('DW')
-plt.plot(x,y)
-plt.grid(True, axis='y')
-plt.xticks(rotation=30)
-plt.savefig('dw_result.png')
-
-plt.figure(2)
-plt.title('LAI')
-plt.plot(x,y2)
-plt.grid(True, axis='y')
-plt.xticks(rotation=30)
-plt.show()
-plt.savefig('lai_result.png')
+# plt.figure(1)
+# plt.title('DW')
+# plt.plot(x,y)
+# plt.grid(True, axis='y')
+# plt.xticks(rotation=30)
+# plt.savefig('dw_result.png')
+#
+# plt.figure(2)
+# plt.title('LAI')
+# plt.plot(x,y2)
+# plt.grid(True, axis='y')
+# plt.xticks(rotation=30)
+# plt.show()
+# plt.savefig('lai_result.png')
 #
 # st.dataframe(df)
 # df.head()
@@ -196,18 +196,23 @@ plt.savefig('lai_result.png')
 #     columns=['10','11','12','13','14','15','16','17','18','19','20','21','22','23'])
 #
 # st.line_chart(seun_temp)
+print(st.__version__)
 
+df_dw = pd.DataFrame({
+    'date': date_env,
+    'dw':dw,
+})
 
-
-
-df_dw = pd.DataFrame(dw, columns=['DW'])
-df_lai = pd.DataFrame(lai, columns=['LAI'])
+df_lai = pd.DataFrame({
+    'date': date_env,
+    'LAI':lai,
+})
 
 st.subheader('DRY WEIGHT (g)')
-st.line_chart(dw)
+st.line_chart(df_dw, x='date', y='dw')
+st.subheader('LAI (leaf area index, (m2/m2)')
+st.line_chart(df_lai, x='date', y='LAI')
 
-st.subheader('LAI (leaf area index,  (m2/m2)')
-st.line_chart(lai)
 
 
 # df_check = pd.DataFrame(data=[
