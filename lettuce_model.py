@@ -198,13 +198,13 @@ for i in range(0, total_length):
 # st.line_chart(seun_temp)
 
 df_dw = pd.DataFrame({
-    'date': date_env,
-    'dw':dw,
+    'DAT': date_env,
+    'dry weight (g)':dw,
 })
 
 df_lai = pd.DataFrame({
-    'date': date_env,
-    'LAI':lai,
+    'DAT': date_env,
+    'LAI (m2/m2)':lai,
 })
 
 st.subheader('DRY WEIGHT (g)')
