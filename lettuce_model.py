@@ -82,10 +82,10 @@ c_car2 = (5.94 * (0.1 ** 4))
 c_car3 = (-2.64 * (0.1 ** 3))
 
 # 세운 여름
-u_t = df.iloc[:,3].values.tolist()
-u_co2 = df.iloc[:, 4].values.tolist()
-u_par = df.iloc[:, 5].values.tolist()
-dt = df.iloc[:,6].values.tolist()
+# u_t = df.iloc[:,3].values.tolist()
+# u_co2 = df.iloc[:, 4].values.tolist()
+# u_par = df.iloc[:, 5].values.tolist()
+# dt = df.iloc[:,6].values.tolist()
 
 # 계화 겨울
 # u_t = df2.iloc[:,1].values.tolist()
@@ -94,10 +94,10 @@ dt = df.iloc[:,6].values.tolist()
 # dt = df2.iloc[:, 4].values.tolist()
 
 # env
-# u_t = df_env[env_t].values.tolist()
-# u_co2 = df_env.iloc[:, 1].values.tolist()
-# u_par = df_env[env_p].values.tolist()
-# dt = df.iloc[:, 6].values.tolist()
+u_t = df_env[env_t].values.tolist()
+u_co2 = df_env.iloc[:, 1].values.tolist()
+u_par = df_env[env_p].values.tolist()
+dt = df.iloc[:, 6].values.tolist()
 
 nsdw = np.zeros(total_length)
 sdw = np.zeros(total_length)
