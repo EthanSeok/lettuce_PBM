@@ -28,6 +28,7 @@
 <img src = 'https://user-images.githubusercontent.com/93086581/211191431-e501ad8e-16b8-41c6-a6a0-0b07999eadec.jpg'><br>
 
 
+
 ### 모델 수식
 <img src="https://user-images.githubusercontent.com/93086581/211191495-247c5ffb-c764-4be2-a1ed-2005c7a6e55a.jpg"><br>
 
@@ -70,6 +71,15 @@
 
 
 <img src="https://user-images.githubusercontent.com/93086581/211191883-8b742fbe-2755-4d9d-92f4-13881c343d3c.jpg"><br>
+
+
+### Streamlit을 이용한 시각화
+* 온도 및 광 조건에 따른 상추의 생육상 시각화
+* 온도. 광 슬라이드를 조절하여 상추의 생육상을 볼 수 있음.
+* https://ethanseok.github.io/ 에서 LETTUCE MODEL 아이콘을 클릭하여 구동 가능
+
+
+<img src='https://user-images.githubusercontent.com/93086581/211192374-bea5b825-599f-4425-87a6-cc0ae6d07403.jpg'>
 
 ### Conclusion
 * 분단위 온실 내부 온도, CO2, PAR 데이터를 구득하여 모델에 적용하여 시뮬레이션하고, 파이썬 기반 웹 API를 통해 환경 데이터 및 생육일자에 따른 건물중 및 LAI 커브를 시각화함
