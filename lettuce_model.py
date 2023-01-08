@@ -5,16 +5,16 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 # 세운 여름 환경 데이터 불러오기
-df = pd.read_csv('./seun_summer.csv', parse_dates=['timestamp', "date", "time"])
+df = pd.read_csv('data/summer/seun_summer.csv', parse_dates=['timestamp', "date", "time"])
 # print(df['timestamp'].dtypes)
 
 # 계화 겨울 환경 데이터 불러오기
-df2 = pd.read_csv('./winter.csv',parse_dates=["timestamp"])
+df2 = pd.read_csv('data/winter/winter.csv', parse_dates=["timestamp"])
 
 # 시나리오 env 파일 불러오기
-df_env = pd.read_csv('env.csv', encoding='utf-8-sig')
+df_env = pd.read_csv('data/chamber/env.csv', encoding='utf-8-sig')
 
-df_raw = pd.read_csv('./env_raw.csv', encoding='utf-8-sig')
+df_raw = pd.read_csv('data/chamber/env_raw.csv', encoding='utf-8-sig')
 
 # 환경데이터 전처리
 df["dt"] = (df["timestamp"] - df["timestamp"].shift(periods=1)).dt.total_seconds()/60  #dt 계산
