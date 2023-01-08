@@ -28,7 +28,6 @@
 <img src = 'https://user-images.githubusercontent.com/93086581/211191431-e501ad8e-16b8-41c6-a6a0-0b07999eadec.jpg'><br>
 
 
-
 ### 모델 수식
 <img src="https://user-images.githubusercontent.com/93086581/211191495-247c5ffb-c764-4be2-a1ed-2005c7a6e55a.jpg"><br>
 
